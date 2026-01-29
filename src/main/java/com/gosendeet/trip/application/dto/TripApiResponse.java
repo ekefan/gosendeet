@@ -6,9 +6,15 @@ public record TripApiResponse(
         UUID tripId,
         UUID riderId,
         UUID customerId,
-        double pickupLat,
-        double pickupLng,
-        double destinationLat,
-        double destinationLng,
-        String status
+        double startLat,
+        double startLng,
+        double endLat,
+        double endLng,
+        String status,
+        String region,
+        String travelMode,
+        double plannedDistanceMeters,
+        long plannedEtaSeconds,
+        String startAddress,
+        String endAddress
 ) {}

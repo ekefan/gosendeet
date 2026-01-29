@@ -3,25 +3,35 @@ package com.gosendeet.trip.application.dto;
 import java.util.UUID;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 public record CreateTripRequest(
-
-    @NotNull(message = "riderId is required")
-    UUID riderId,
 
     @NotNull(message = "customerId is required")
     UUID customerId,
 
-    @NotNull(message = "pickupLat is required")
-    Double pickupLat,
+    @NotNull(message = "startLat is required")
+    Double startLat,
 
-    @NotNull(message = "pickupLng is required")
-    Double pickupLng,
+    @NotNull(message = "startLng is required")
+    Double startLng,
 
-    @NotNull(message = "destinationLat is required")
-    Double destinationLat,
+    @NotNull(message = "endLat is required")
+    Double endLat,
 
-    @NotNull(message = "destinationLng is required")
-    Double destinationLng
+    @NotNull(message = "endLng is required")
+    Double endLng,
 
+    String startAddress,
+    String endAddress,
+    String region,
+    String travelMode,
+
+    @NotNull(message = "plannedDistanceMeters is required")
+    @Positive(message = "plannedDistanceMeters must be positive")
+    double plannedDistanceMeters,
+
+    @NotNull(message = "plannedEtaSeconds is required")
+    @Positive(message = "plannedEtaSeconds must be positive")
+    double plannedEtaSeconds
 ) {}

@@ -1,0 +1,274 @@
+{
+  "info": {
+    "_postman_id": "6ef77d44-02a5-4907-8ba4-a6bb0a6212c1",
+    "name": "GoSendeet-eben",
+    "description": "A simple API to simulate Ride tracking for gosendeet",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48548212",
+    "_collection_link": "https://go.postman.co/collection/48548212-6ef77d44-02a5-4907-8ba4-a6bb0a6212c1?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Trip",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"riderId\": \"3f6a8f8e-2c7d-4a9c-9c7c-5e8b2f8d9a21\",\n//   \"customerId\": \"9c1e5b44-7f9a-4c2a-b6a2-1c8e9b3d4f77\",\n  \"startLat\": 10.23,\n  \"startLng\": 30.43,\n  \"endLat\": 40.32,\n  \"endLng\": 52.21\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/trip",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "trip"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Trip",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/trip/688e59b1-be25-48e7-af24-9f6d7a4825b2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "trip",
+            "688e59b1-be25-48e7-af24-9f6d7a4825b2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "MarkParcelAsDelivered",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/trip/{{tripId}}/parcel",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "trip",
+            "{{tripId}}",
+            "parcel"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Assign Trip",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"riderId\": \"3f6a8f8e-2c7d-4a9c-9c7c-5e8b2f8d9a21\",\n//   \"customerId\": \"9c1e5b44-7f9a-4c2a-b6a2-1c8e9b3d4f77\",\n  \"startLat\": 10.23,\n  \"startLng\": 30.43,\n  \"endLat\": 40.32,\n  \"endLng\": 52.21\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/trip/{{tripId}}/assign/{{riderId}}",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "trip",
+            "{{tripId}}",
+            "assign",
+            "{{riderId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Start Trip",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/trip/c93ae893-291e-49ca-8d33-c61e88777101/start",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "trip",
+            "c93ae893-291e-49ca-8d33-c61e88777101",
+            "start"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cancel Trip",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/trip/c93ae893-291e-49ca-8d33-c61e88777101/cancel",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "trip",
+            "c93ae893-291e-49ca-8d33-c61e88777101",
+            "cancel"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Complete Trip",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/trip/c93ae893-291e-49ca-8d33-c61e88777101/complete",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "trip",
+            "c93ae893-291e-49ca-8d33-c61e88777101",
+            "complete"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Trip Location",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"distance\": {\n    \"text\": \"2.3 km\",\n    \"value\": 2300\n  },\n  \"duration\": {\n    \"text\": \"6 mins\",\n    \"value\": 360\n  },\n  \"lat\": 6.5244,\n  \"lng\": 3.3792\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/trip/{{tripId}}/tracking",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "trip",
+            "{{tripId}}",
+            "tracking"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "tripId",
+      "value": ""
+    },
+    {
+      "key": "riderId",
+      "value": ""
+    },
+    {
+      "key": "customerId",
+      "value": ""
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 package com.gosendeet.trip.application;
 
+import java.time.Duration;
 import java.util.UUID;
 
 import org.springframework.stereotype.Component;
@@ -23,12 +24,17 @@ public class CreateTripUseCase {
 
         Trip trip = new Trip(
             tripId,
-
             request.customerId(),
-            request.pickupLat(),
-            request.pickupLng(),
-            request.destinationLat(),
-            request.destinationLng()
+            request.startLat(),
+            request.startLng(),
+            request.startAddress(),
+            request.endLat(),
+            request.endLng(),
+            request.endAddress(),
+            request.plannedDistanceMeters(),
+            Duration.ofSeconds((long) request.plannedEtaSeconds()),
+            request.travelMode(),
+            request.region()
         );
 
         tripRepo.upsert(trip);
@@ -37,11 +43,17 @@ public class CreateTripUseCase {
                 trip.getId(),
                 trip.getRiderId(),
                 trip.getCustomerId(),
-                trip.getPickupLat(),
-                trip.getPickupLng(),
-                trip.getDestinationLat(),
-                trip.getDestinationLng(),
-                trip.getStatus().name()
+                trip.getStartLat(),
+                trip.getStartLng(),
+                trip.getEndLat(),
+                trip.getEndLng(),
+                trip.getStatus().name(),
+                trip.getRegion(),
+                trip.getTravelMode(),
+                trip.getPlannedDistanceMeters(),
+                trip.getPlannedEta().toSeconds(),
+                trip.getStartAddress(),
+                trip.getEndAddress()
         );
     }
 }

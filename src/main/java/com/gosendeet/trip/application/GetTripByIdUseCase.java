@@ -29,11 +29,17 @@ public class GetTripByIdUseCase {
                 trip.getId(),
                 trip.getRiderId(),
                 trip.getCustomerId(),
-                trip.getPickupLat(),
-                trip.getPickupLng(),
-                trip.getDestinationLat(),
-                trip.getDestinationLng(),
-                trip.getStatus().name()
+                trip.getStartLat(),
+                trip.getStartLng(),
+                trip.getEndLat(),
+                trip.getEndLng(),
+                trip.getStatus().name(),
+                trip.getRegion(),
+                trip.getTravelMode(),
+                trip.getPlannedDistanceMeters(),
+                trip.getPlannedEta().toSeconds(),
+                trip.getStartAddress(),
+                trip.getEndAddress()
         );
     }
 }
